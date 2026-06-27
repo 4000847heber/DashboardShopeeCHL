@@ -5,6 +5,7 @@ from datetime import date
 import pandas as pd
 import streamlit as st
 
+
 def moeda(valor):
 
     return (
@@ -29,6 +30,7 @@ def inteiro(valor):
         .replace(",", ".")
 
     )
+
 
 def painel_meta(
 
@@ -90,16 +92,6 @@ def painel_meta(
 
         pedidos = len(df)
 
-        ticket = (
-
-            valor_vendido / pedidos
-
-            if pedidos
-
-            else 0
-
-        )
-
         percentual = (
 
             (valor_vendido / meta) * 100
@@ -154,63 +146,33 @@ def painel_meta(
 
         )
 
+        dia_atual = ultima_data.day
+
+        projecao_comissao = (
+
+            (comissao / dia_atual) * ultimo_dia
+
+            if dia_atual > 0
+
+            else 0
+
+        )
+
         if percentual >= 150:
 
             bonus = 3
-
-            proximo = "Meta máxima"
-
-            falta_bonus = 0
 
         elif percentual >= 125:
 
             bonus = 2
 
-            proximo = "150%"
-
-            falta_bonus = max(
-
-                meta * 1.5 - valor_vendido,
-
-                0
-
-            )
-
         elif percentual >= 100:
 
             bonus = 1
 
-            proximo = "125%"
-
-            falta_bonus = max(
-
-                meta * 1.25 - valor_vendido,
-
-                0
-
-            )
-
         else:
 
             bonus = 0
-
-            proximo = "100%"
-
-            falta_bonus = max(
-
-                meta - valor_vendido,
-
-                0
-
-            )
-
-        valor_bonus = (
-
-            valor_vendido
-
-            * (bonus / 100)
-
-        )
 
     with col_barra:
 
@@ -237,7 +199,6 @@ def painel_meta(
             progresso
 
         )
-
 
     linha1 = st.columns(4)
 
@@ -267,9 +228,9 @@ def painel_meta(
 
     linha1[3].metric(
 
-        "🛍 Ticket Médio",
+        "📈 Projeção Comissão",
 
-        moeda(ticket)
+        moeda(projecao_comissao)
 
     )
 
