@@ -137,7 +137,7 @@ def painel_rankings(df):
 
             Pedidos=("sub_id", "size"),
 
-            Valor=("valor_vendido", "sum")
+            Comissão=("comissao", "sum")
 
         )
 
@@ -165,7 +165,7 @@ def painel_rankings(df):
 
     top_subid["Pedidos"] = top_subid["Pedidos"].map(inteiro)
 
-    top_subid["Valor"] = top_subid["Valor"].map(moeda)
+    top_subid["Comissão"] = top_subid["Comissão"].map(moeda)
 
     top_cookies = (
 
@@ -281,7 +281,7 @@ def painel_rankings(df):
 
                     "Sub_ID",
 
-                    "Valor"
+                    "Comissão"
 
                 ]
 
