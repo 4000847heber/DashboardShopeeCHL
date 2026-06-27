@@ -103,6 +103,12 @@ Colunas encontradas:
         ])
     ].copy()
 
+    print("=" * 50)
+    print("Pedidos:", len(df))
+    print("Venda:", df["valor_vendido"].sum())
+    print("Comissão:", df["comissao"].sum())
+    print("=" * 50)
+
     df["data"] = pd.to_datetime(
         df["data"]
     ).dt.normalize()
