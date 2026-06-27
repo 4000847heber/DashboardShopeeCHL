@@ -1,14 +1,15 @@
-import streamlit as st
+import json
 import sqlite3
-
 from pathlib import Path
 
 import pandas as pd
-import json
+import streamlit as st
+
 from painel_meta import painel_meta
 from painel_destaques import painel_destaques
 from painel_rankings import painel_rankings
 from painel_grafico import painel_grafico
+
 
 BASE_DIR = Path(__file__).parent
 
@@ -113,7 +114,24 @@ df = df[
 
     (df["data"] <= pd.to_datetime(data_final))
 
-]
+].copy()
+
+
+periodo = (
+
+    data_inicial.strftime("%d/%m/%Y")
+
+    if data_inicial == data_final
+
+    else f"{data_inicial.strftime('%d/%m/%Y')} até {data_final.strftime('%d/%m/%Y')}"
+
+)
+
+st.info(
+
+    f"📅 **Período analisado:** {periodo} | 📦 **Pedidos únicos:** {len(df):,}".replace(",", ".")
+
+)
 
 
 painel_meta(
