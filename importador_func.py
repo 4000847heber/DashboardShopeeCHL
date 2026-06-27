@@ -120,9 +120,36 @@ Colunas encontradas:
         ]
     ]
 
-    df = df.drop_duplicates(
-        subset="pedido",
-        keep="last"
+    df = (
+
+        df
+
+        .groupby(
+
+            "pedido",
+
+            as_index=False
+
+        )
+
+        .agg(
+
+            data=("data", "first"),
+
+            produto=("produto", "first"),
+
+            sub_id=("sub_id", "first"),
+
+            canal=("canal", "first"),
+
+            status=("status", "first"),
+
+            valor_vendido=("valor_vendido", "sum"),
+
+            comissao=("comissao", "sum")
+
+        )
+
     )
 
     datas = (
