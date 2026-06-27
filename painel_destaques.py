@@ -63,7 +63,7 @@ def painel_destaques(df):
 
             Pedidos=("sub_id", "size"),
 
-            Valor=("valor_vendido", "sum")
+            Comissao=("comissao", "sum")
 
         )
 
@@ -139,7 +139,7 @@ def painel_destaques(df):
 
         st.caption(
 
-            f"{sub['Pedidos']} pedidos • {moeda(sub['Valor'])}"
+            f"{inteiro(sub['Pedidos'])} pedidos • {moeda(sub['Comissao'])}"
 
         )
 
@@ -178,3 +178,14 @@ def painel_destaques(df):
             moeda(rentavel["comissao"])
 
         )
+
+
+def inteiro(valor):
+
+    return (
+
+        f"{int(valor):,}"
+
+        .replace(",", ".")
+
+    )
