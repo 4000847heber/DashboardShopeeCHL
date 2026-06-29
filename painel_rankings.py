@@ -3,6 +3,26 @@ import streamlit as st
 
 def moeda(valor):
 
+    if abs(valor) >= 1_000_000:
+
+        return (
+
+            f"R$ {valor / 1_000_000:.2f} mi"
+
+            .replace(".", ",")
+
+        )
+
+    if abs(valor) >= 100_000:
+
+        return (
+
+            f"R$ {valor / 1_000:.1f} mil"
+
+            .replace(".", ",")
+
+        )
+
     return (
 
         f"R$ {valor:,.2f}"
