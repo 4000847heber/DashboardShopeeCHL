@@ -52,6 +52,42 @@ def inteiro(valor):
     )
 
 
+def card(titulo, valor):
+
+    st.markdown(
+
+        f"""
+        <div style="
+            border:1px solid rgba(128,128,128,.25);
+            border-radius:12px;
+            padding:14px;
+            min-height:95px;
+            margin-bottom:10px;
+        ">
+            <div style="
+                font-size:14px;
+                opacity:.75;
+                margin-bottom:8px;
+            ">
+                {titulo}
+            </div>
+
+            <div style="
+                font-size:clamp(18px,2vw,32px);
+                font-weight:700;
+                line-height:1.15;
+                word-break:break-word;
+            ">
+                {valor}
+            </div>
+        </div>
+        """,
+
+        unsafe_allow_html=True
+
+    )
+
+
 def painel_meta(
 
     df,
@@ -227,9 +263,11 @@ def painel_meta(
 
             )
 
-    linha1 = st.columns(4)
+linha1 = st.columns(4)
 
-    linha1[0].metric(
+with linha1[0]:
+
+    card(
 
         "🛒 Valor Vendido",
 
@@ -237,7 +275,9 @@ def painel_meta(
 
     )
 
-    linha1[1].metric(
+with linha1[1]:
+
+    card(
 
         "💰 Comissão",
 
@@ -245,7 +285,9 @@ def painel_meta(
 
     )
 
-    linha1[2].metric(
+with linha1[2]:
+
+    card(
 
         "📦 Pedidos",
 
@@ -253,7 +295,9 @@ def painel_meta(
 
     )
 
-    linha1[3].metric(
+with linha1[3]:
+
+    card(
 
         "📈 Projeção Comissão",
 
@@ -261,9 +305,12 @@ def painel_meta(
 
     )
 
-    linha2 = st.columns(4)
 
-    linha2[0].metric(
+linha2 = st.columns(4)
+
+with linha2[0]:
+
+    card(
 
         "🎯 Meta",
 
@@ -271,7 +318,9 @@ def painel_meta(
 
     )
 
-    linha2[1].metric(
+with linha2[1]:
+
+    card(
 
         "🏆 Bônus",
 
@@ -279,7 +328,9 @@ def painel_meta(
 
     )
 
-    linha2[2].metric(
+with linha2[2]:
+
+    card(
 
         "📉 Faltam",
 
@@ -287,7 +338,9 @@ def painel_meta(
 
     )
 
-    linha2[3].metric(
+with linha2[3]:
+
+    card(
 
         "📅 Média diária",
 
