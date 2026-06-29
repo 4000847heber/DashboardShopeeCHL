@@ -10,23 +10,11 @@ def moeda(valor):
 
     if abs(valor) >= 1_000_000:
 
-        return (
-
-            f"R$ {valor / 1_000_000:.2f} mi"
-
-            .replace(".", ",")
-
-        )
+        return f"R$ {(valor / 1_000_000):.2f} mi".replace(".", ",")
 
     if abs(valor) >= 100_000:
 
-        return (
-
-            f"R$ {valor / 1_000:.1f} mil"
-
-            .replace(".", ",")
-
-        )
+        return f"R$ {(valor / 1_000):.1f} mil".replace(".", ",")
 
     return (
 
@@ -55,35 +43,46 @@ def inteiro(valor):
 def card(titulo, valor):
 
     st.markdown(
+
         f"""
-        <div style="
-            border:1px solid rgba(128,128,128,.25);
-            border-radius:12px;
-            padding:14px;
-            min-height:95px;
-            margin-bottom:10px;
-        ">
-            <div style="
-                font-size:14px;
-                opacity:.75;
-                margin-bottom:8px;
-            ">
-                {titulo}
-            </div>
+<style>
+.card-metric {{
+    border:1px solid rgba(128,128,128,.25);
+    border-radius:12px;
+    padding:14px;
+    min-height:95px;
+    margin-bottom:10px;
+}}
 
-            <div style="
-                font-size:clamp(18px,2vw,32px);
-                font-weight:700;
-                line-height:1.15;
-                word-break:break-word;
-            ">
-                {valor}
-            </div>
+.card-title {{
+    font-size:14px;
+    opacity:.75;
+    margin-bottom:8px;
+}}
 
-        </div>
+.card-value {{
+    font-size:clamp(18px,2vw,32px);
+    font-weight:700;
+    line-height:1.15;
+    word-break:break-word;
+}}
+</style>
+
+<div class="card-metric">
+
+<div class="card-title">{titulo}</div>
+
+<div class="card-value">{valor}</div>
+
+</div>
         """,
+
         unsafe_allow_html=True
+
     )
+
+
+def painel_meta(
 
 def painel_meta(
 
