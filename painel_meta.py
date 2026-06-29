@@ -174,31 +174,38 @@ def painel_meta(
 
             bonus = 0
 
+        bonus_estimado = valor_vendido * (bonus / 100)
+
     with col_barra:
 
         st.write("")
-
         st.write("")
 
-        progresso = min(
+        col_prog, col_bonus = st.columns([3, 1])
 
-            percentual / 150,
+        with col_prog:
 
-            1.0
+            st.markdown(
 
-        )
+                f"**Progresso da Meta: {percentual:.1f}%**"
 
-        st.markdown(
+            )
 
-            f"**Progresso da Meta: {percentual:.1f}%**"
+            st.progress(
 
-        )
+                min(percentual / 150, 1.0)
 
-        st.progress(
+            )
 
-            progresso
+        with col_bonus:
 
-        )
+            st.markdown("**🏆 Bônus Estimado**")
+
+            st.markdown(
+
+                f"### {moeda(bonus_estimado)}"
+
+            )
 
     linha1 = st.columns(4)
 
