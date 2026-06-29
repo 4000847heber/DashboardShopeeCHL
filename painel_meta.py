@@ -263,87 +263,86 @@ def painel_meta(
 
             )
 
-linha1 = st.columns(4)
+    linha1 = st.columns(4)
 
-with linha1[0]:
+    with linha1[0]:
 
-    card(
+        card(
 
-        "🛒 Valor Vendido",
+            "🛒 Valor Vendido",
 
-        moeda(valor_vendido)
+            moeda(valor_vendido)
 
-    )
+        )
 
-with linha1[1]:
+    with linha1[1]:
 
-    card(
+        card(
 
-        "💰 Comissão",
+            "💰 Comissão",
 
-        moeda(comissao)
+            moeda(comissao)
 
-    )
+        )
 
-with linha1[2]:
+    with linha1[2]:
 
-    card(
+        card(
 
-        "📦 Pedidos",
+            "📦 Pedidos",
 
-        inteiro(pedidos)
+            inteiro(pedidos)
 
-    )
+        )
 
-with linha1[3]:
+    with linha1[3]:
 
-    card(
+        card(
 
-        "📈 Projeção Comissão",
+            "📈 Projeção Comissão",
 
-        moeda(projecao_comissao)
+            moeda(projecao_comissao)
 
-    )
+        )
 
+    linha2 = st.columns(4)
 
-linha2 = st.columns(4)
+    with linha2[0]:
 
-with linha2[0]:
+        card(
 
-    card(
+            "🎯 Meta",
 
-        "🎯 Meta",
+            f"{percentual:.1f}%"
 
-        f"{percentual:.1f}%"
+        )
 
-    )
+    with linha2[1]:
 
-with linha2[1]:
+        card(
 
-    card(
+            "🏆 Bônus",
 
-        "🏆 Bônus",
+            f"{bonus}%"
 
-        f"{bonus}%"
+        )
 
-    )
+    with linha2[2]:
 
-with linha2[2]:
+        card(
 
-    card(
+            "📉 Faltam",
 
-        "📉 Faltam",
+            moeda(restante)
 
-        moeda(restante)
+        )
 
-    )
+    with linha2[3]:
 
-with linha2[3]:
+        card(
 
-    card(
+            "📅 Média diária",
 
-        "📅 Média diária",
+            moeda(media_necessaria)
 
-        moeda(media_necessaria)
-
-    )
+        )
