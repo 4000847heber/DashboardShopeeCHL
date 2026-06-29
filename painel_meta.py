@@ -84,8 +84,6 @@ def card(titulo, valor):
 
 def painel_meta(
 
-def painel_meta(
-
     df,
 
     config,
