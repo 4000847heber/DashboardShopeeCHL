@@ -55,7 +55,6 @@ def inteiro(valor):
 def card(titulo, valor):
 
     st.markdown(
-
         f"""
         <div style="
             border:1px solid rgba(128,128,128,.25);
@@ -80,13 +79,11 @@ def card(titulo, valor):
             ">
                 {valor}
             </div>
+
         </div>
         """,
-
         unsafe_allow_html=True
-
     )
-
 
 def painel_meta(
 
